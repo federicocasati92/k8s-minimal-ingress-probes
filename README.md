@@ -1,5 +1,3 @@
-Perfetto 👍
-Qui sotto trovi **solo il `README.md` in inglese**, pronto da copiare e incollare **così com’è** nel file `README.md` del tuo progetto.
 
 ---
 
