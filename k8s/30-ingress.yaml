@@ -3,12 +3,22 @@ kind: Ingress
 metadata:
   name: minimal-app
   namespace: demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
     - host: app.localtest.me
       http:
         paths:
+          - path: /v2
+            pathType: Prefix
+            backend:
+              service:
+                name: minimal-app-v2
+                port:
+                  number: 80
+
           - path: /
             pathType: Prefix
             backend:
@@ -16,4 +26,5 @@ spec:
                 name: minimal-app
                 port:
                   number: 80
+
 

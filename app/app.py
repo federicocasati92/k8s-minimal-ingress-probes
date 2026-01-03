@@ -1,5 +1,7 @@
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import socket
+import os
 
 PORT = 8080
 
@@ -28,9 +30,13 @@ class Handler(BaseHTTPRequestHandler):
 
         # Endpoint normale per test
         if self.path == "/":
+            version = os.getenv("APP_VERSION", "unknown")
+            pod = socket.gethostname()
+            body = f"hello from k8s minimal app - version={version} pod={pod}\n"
+
             self.send_response(200)
             self.end_headers()
-            self.wfile.write(b"hello from k8s minimal app")
+            self.wfile.write(body.encode("utf-8"))
             return
 
         self.send_response(404)
@@ -40,3 +46,4 @@ if __name__ == "__main__":
     print(f"Starting minimal app on port {PORT}")
     server = HTTPServer(("0.0.0.0", PORT), Handler)
     server.serve_forever()
+
