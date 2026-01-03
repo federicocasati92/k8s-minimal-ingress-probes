@@ -79,7 +79,6 @@ This configuration:
 - Exposes ports 80 and 443 on localhost for Ingress
 - Labels the control-plane node as `ingress-ready=true`
 - Enables the Ingress controller to work correctly with kind
-```
 
 Load the local image into the kind cluster:
 ```bash
