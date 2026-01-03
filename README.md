@@ -83,6 +83,7 @@ kind load docker-image minimal-app:dev --name demo
 ## Install ingress-nginx (for kind)
 
 ```bash
+kubectl label node demo-control-plane ingress-ready=true
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.3/deploy/static/provider/kind/deploy.yaml
 kubectl -n ingress-nginx rollout status deployment/ingress-nginx-controller
 ```
