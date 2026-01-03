@@ -68,10 +68,15 @@ not ready.
 docker build -t minimal-app:dev ./app
 ```
 
-## Create a local Kubernetes cluster
-
+# Create a local Kubernetes cluster
 ```bash
-kind create cluster --name demo
+kind create cluster --name demo --config kind-config.yaml
+```
+
+This configuration:
+- Exposes ports 80 and 443 on localhost for Ingress
+- Labels the control-plane node as `ingress-ready=true`
+- Enables the Ingress controller to work correctly with kind
 ```
 
 Load the local image into the kind cluster:
