@@ -82,7 +82,6 @@ This configuration:
 ```
 
 Load the local image into the kind cluster:
-
 ```bash
 kind load docker-image minimal-app:dev --name demo
 ```
