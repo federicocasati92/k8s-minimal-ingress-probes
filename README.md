@@ -52,8 +52,10 @@ not ready.
 │   ├── 10-deployment.yaml
 │   ├── 20-service.yaml
 │   └── 30-ingress.yaml
+├── kind-config.yaml
 ├── .gitignore
 └── README.md
+
 ````
 
 ## Prerequisites
